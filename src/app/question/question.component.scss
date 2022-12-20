@@ -1,0 +1,96 @@
+.question-remain-span {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 15px;
+    font-weight: 600;
+
+}
+
+.question_main {
+    font-size: 22px;
+}
+
+.name_span {
+    font-weight: 900;
+    font-size: 22px;
+}
+
+.span_n {
+    font-size: 16px;
+    font-weight: 700;
+
+}
+
+.card {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.user_nameAll {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    width: 50p;
+    align-content: space-between;
+    align-items: baseline;
+}
+.logout_btn{
+    :hover{
+        background-color: rgb(197, 7, 7);
+        
+    }
+}
+
+li {
+    list-style-type: none;
+    cursor: pointer;
+    margin: 10px 0;
+}
+
+li .card:hover {
+    border: 1px solid rgba(0, 0, 0, 0.041);
+    background-color: rgb(216, 238, 238);
+}
+
+ol {
+    padding: 0;
+}
+
+.restart_test {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: space-between;
+    justify-content: flex-end;
+
+    :hover {
+        background-color: rgb(66, 247, 135);
+        color: black;
+        font-weight: 500;
+    }
+}
+
+.leader_board {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+    font-size: 22px;
+    font-weight: 600;
+}
+
+.board {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: row;
+    align-content: space-around;
+    justify-content: space-around;
+    align-items: center;
+}

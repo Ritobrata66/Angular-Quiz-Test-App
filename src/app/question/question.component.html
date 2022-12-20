@@ -1,0 +1,152 @@
+<div class="container mt-5">
+    <div class="card">
+        <div class="d-flex justify-content-between p-3">
+            <div class="image">
+                <img src="https://img.icons8.com/color/96/000000/angularjs.png" width="90" alt="Quizlogo">
+            </div>
+            <div class="quiz-header">
+                <h4 style="font-family: cursive;">Angular Quiz Test!</h4>
+                <h5> Made by RITOBRATA SARKAR</h5>
+                <div class="user_nameAll">
+                    <span class="span_n">USER- </span>
+                    <span class="name_span">{{name}}</span><br>
+
+                    <button class="logout_btn" mat-raised-button color="primary" (click)="logedout()">
+                        <mat-icon aria-label="Side nav toggle icon">logout</mat-icon>
+                    </button>
+                </div>
+
+            </div>
+        </div>
+
+        <ng-container *ngIf="!isQuizCompleted">
+            <div>
+                <div class="question-remain">
+                    <h5 class="question-remain-span">Question {{currentQuestion+1}} of {{questionList.length}} </h5>
+                </div>
+            </div>
+
+            <hr>
+
+            <!-- Questions ********* -->
+            <div class="question">
+                <div class="card">
+                    <h3 class="question_main">{{questionList[currentQuestion]?.questionText }}</h3>
+                </div>
+            </div>
+
+            <!-- Options  -->
+            <div class="options">
+                <ol *ngFor="let option of questionList[currentQuestion]?.options">
+                    <li (click)="answer(currentQuestion+1,option)">
+                        <!-- appChangeBg [isCorrect]="option.correct" -->
+                        <div class="card" appChangeBg [isCorrect]="option.correct">
+                            {{option.text}}
+                        </div>
+
+                        <!-- <div  class="card" id="select_O" (click)="check(currentQuestion+1,option.correct)" >
+                            {{option.text}}
+                        </div>
+                        <span class="badge green-text"   *ngIf="option.correct ==true">
+                          <i class="material-icons green-text" style="background-color: green;">LEgit</i>
+                        </span>
+                        <span class="badge red-text" *ngIf="option.correct ==true && option.correct !=true ">
+                        </span> -->
+
+                    </li>
+
+                </ol>
+
+            </div>
+
+
+            <!-- buttom nav  -->
+            <!-- <div class="d-flex justify-content-between">
+                <button class="btn" (click)="previousQuestion()">
+                    <i class="fa text-primary fa-chevron-left fa-3x" aria-hidden="true"></i>
+                </button>
+    
+                <button class="btn" (click)="resetQuiz()"><i class="fa fa-refresh text-primary fa-3x"
+                        aria-hidden="true"></i></button>
+
+                <button class="btn" (click)="nextQuestion()">
+                    <i class="fa text-primary fa-chevron-right fa-3x" aria-hidden="true"></i>
+                </button>
+            </div> -->
+
+        </ng-container>
+
+        <ng-container *ngIf="isQuizCompleted">
+            <div class="row d-flex justify-content-between">
+                <div class="result text-center col-md-6 col-sm-12">
+
+                </div>
+                <div class="restart_test">
+                    <button mat-raised-button color="primary" (click)="resetQuiz()">
+                        Restart Test
+                    </button>
+                </div>
+            </div>
+
+            <div class="board">
+                <h3 class="leader_board"> Score-Board</h3>
+                <table id="selectedColumn" class="table table-striped table-bordered table-sm" cellspacing="0"
+                    width="100%">
+                    <thead>
+                        <tr>
+                            <!-- <th scope="col">RANK</th> -->
+                            <th scope="col">USER</th>
+                            <th scope="col">SCORE</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr
+                            style="background-color: rgb(112, 240, 134); font-weight: bold; color: white; font-size: larger;">
+                            <td>{{name}}</td>
+                            <td>{{points}} </td>
+                        </tr>
+                        <tr>
+                            <td>Mark</td>
+                            <td>50</td>
+                        </tr>
+                        <tr>
+                            <td>Jacob</td>
+                            <td>40</td>
+                        </tr>
+                        <tr>
+                            <td>Mark</td>
+                            <td>30</td>
+                        </tr>
+                        <tr>
+                            <td>Jacob</td>
+                            <td>20</td>
+                        </tr>
+                        <tr>
+                            <td>Mark</td>
+                            <td>10</td>
+                        </tr>
+                        <tr>
+                            <td>Jacob</td>
+                            <td>00</td>
+                        </tr>
+                        <tr>
+                            <td>Mark</td>
+                            <td>-10</td>
+                        </tr>
+                        <tr>
+                            <td>Jacob</td>
+                            <td>-20</td>
+                        </tr>
+                        <tr>
+                            <td>Jacob</td>
+                            <td>-40</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+
+
+        </ng-container>
+
+    </div>
+</div>

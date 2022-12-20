@@ -1,0 +1,73 @@
+
+
+<div class="total_body">
+    <div class="container">
+        <div class="main">
+            <input type="checkbox" id="chk" aria-hidden="true">
+
+            <div class="signup">
+                <form #signing="ngForm" (ngSubmit)="signing.reset();">
+                    <label for="chk" aria-hidden="true">Sign up</label>
+
+                    <input type="text" name="txt" placeholder="User name" required [(ngModel)]="signupObj.userName">
+                    <input type="email" name="email" placeholder="Email" required [(ngModel)]="signupObj.email">
+                    <input type="password" name="pswd" placeholder="Password" required [(ngModel)]="signupObj.password">
+
+
+                    <button (click)="onSignup()" [disabled]="signing.invalid" #sbmtbtn1 type="submit">Sign up</button>
+
+                    <div class="spanwarning"> <span *ngIf="sbmtbtn1.disabled" style="color: lightcoral">Please
+                            Enter User Name, Email & password *</span>
+                    </div>
+                </form>
+
+            </div>
+
+            <div class="login">
+                <form #loginin="ngForm" (ngSubmit)="loginin.reset();">
+                    <label for="chk" aria-hidden="true">Login</label>
+                    <!-- UserName input  -->
+                    <input type="text" name="txt" placeholder="User Name" required [(ngModel)]="loginObj.userName"
+                        #username_span="ngModel" ngModel>
+                    <!-- UserName span_warning  -->
+                    <div class="spanwarning"> <span *ngIf="username_span.invalid && username_span.touched"
+                            style="color: red">Please Enter User Name*</span>
+                    </div>
+
+
+
+                    <!-- Email input  -->
+                    <input type="email" name="eml" placeholder="Email" required [(ngModel)]="loginObj.email"
+                        #emails_span="ngModel" ngModel>
+                    <!-- Email span_warning  -->
+                    <div class="spanwarning"> <span *ngIf="emails_span.invalid && emails_span.touched"
+                        style="color: red">Please Enter Email*</span>
+                </div>
+
+
+
+
+                    <!-- Password input  -->
+                    <input type="password" name="pswd" placeholder="Password" required [(ngModel)]="loginObj.password"
+                        #password_span="ngModel" ngModel>
+
+                    <!-- Password span_warning  -->
+
+                    <div class="spanwarning"> <span *ngIf="password_span.invalid && password_span.touched"
+                            style="color: red">Please Enter Password*</span>
+                    </div>
+
+
+
+                    <button (click)="onLogin()" [disabled]="loginin.invalid" #sbmtbtn2 type="submit">Login</button>
+
+                    <div class="spanwarning"> <span *ngIf="sbmtbtn2.disabled" style="color: lightcoral">Please
+                            Enter User Name, Email & password *</span>
+                    </div>
+
+
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
